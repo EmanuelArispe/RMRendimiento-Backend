@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: RMRendimiento
+  datasource:
+    url: jdbc:postgresql://localhost:5432/RMrendimientoDB
+    driver-class-name: org.postgresql.Driver
+    username: admin
+    password: password
+  jpa:
+    hibernate:
+      ddl-auto: create
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    generate-ddl: true
