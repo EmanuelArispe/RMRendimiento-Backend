@@ -1,4 +1,4 @@
-package com.RMRendimiento.Gateway.config;
+package com.RMRendimiento.JWT.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
