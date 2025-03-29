@@ -1,7 +1,7 @@
-package com.RMRendimiento.configuration;
+package com.RMRendimiento.JWT.config;
 
-import com.RMRendimiento.Gateway.security.jwt.JWTFilter;
-import com.RMRendimiento.Gateway.security.jwt.TokenProvider;
+import com.RMRendimiento.JWT.security.token.JWTFilter;
+import com.RMRendimiento.JWT.security.token.TokenProvider;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
