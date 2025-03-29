@@ -1,5 +1,6 @@
 package com.RMRendimiento.User.service;
 
+import com.RMRendimiento.User.dto.RoleDTO;
 import com.RMRendimiento.User.dto.UserCreateDTO;
 import com.RMRendimiento.User.dto.UserDTO;
 import com.RMRendimiento.User.entity.Role;
@@ -10,8 +11,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+
+import static java.util.Collections.addAll;
 
 @Service("UserService")
 public class UserService {
@@ -38,7 +42,13 @@ public class UserService {
                     .name(user.getName())
                     .email(user.getEmail())
                     .password(user.getPassword())
-                    .roles(user.getRoles())
+                    .roles(
+                            user.getRoles().stream()
+                            .map(role -> RoleDTO.builder()
+                                    .id(role.getId())
+                                    .name(role.getRole())
+                                    .build())
+                            .toList())
                     .build());
         });
         return result;
@@ -53,7 +63,13 @@ public class UserService {
                 .name(user.getName())
                 .email(user.getEmail())
                 .password(user.getPassword())
-                .roles(user.getRoles())
+                .roles(
+                        user.getRoles().stream()
+                                .map(role -> RoleDTO.builder()
+                                        .id(role.getId())
+                                        .name(role.getRole())
+                                        .build())
+                                .toList())
                 .build();
     }
 
@@ -81,7 +97,13 @@ public class UserService {
                     .name(userOptional.get().getName())
                     .email(userOptional.get().getEmail())
                     .password(userOptional.get().getPassword())
-                    .roles(userOptional.get().getRoles())
+                    .roles(
+                            userOptional.get().getRoles().stream()
+                            .map(role -> RoleDTO.builder()
+                                    .id(role.getId())
+                                    .name(role.getRole())
+                                    .build())
+                            .toList())
                     .build();
         }
         return null;

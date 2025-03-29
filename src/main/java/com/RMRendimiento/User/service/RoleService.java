@@ -23,7 +23,8 @@ public class RoleService {
 
         listRoles.forEach(role -> {
             result.add(RoleDTO.builder()
-                    .role(role.getRole())
+                    .id(role.getId())
+                    .name(role.getRole())
                     .build());
         });
         return result;
@@ -33,17 +34,18 @@ public class RoleService {
         Role role = roleRepository.findById(id).get();  // Ver si esta presente el rol
 
         return RoleDTO.builder()
-                .role(role.getRole())
+                .id(role.getId())
+                .name(role.getRole())
                 .build();
     }
 
     public Role createRole(RoleDTO newRole)throws BadRequestException {
-        Optional<RoleDTO> roleRepit = roleRepository.findByRole(newRole.getRole());
+        Optional<RoleDTO> roleRepit = roleRepository.findByRole(newRole.getName());
         if (roleRepit.isPresent()) {
             throw new BadRequestException("El rol ya esta registrado");
         }
         Role role = Role.builder()
-                .role(newRole.getRole())
+                .role(newRole.getName())
                 .build();
 
         return roleRepository.save(role);
@@ -53,7 +55,8 @@ public class RoleService {
         Optional<Role> role = roleRepository.findById(id);
         if(role.isPresent()) {
             RoleDTO roleDelete = RoleDTO.builder()
-                    .role(role.get().getRole())
+                    .id(role.get().getId())
+                    .name(role.get().getRole())
                     .build();
             roleRepository.deleteById(id);
             return roleDelete;
