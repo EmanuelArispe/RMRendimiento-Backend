@@ -11,5 +11,6 @@ import lombok.NoArgsConstructor;
 @Data
 public class RoleDTO {
 
-    private String role;
+    private Long id;
+    private String name;
 }

@@ -1,6 +1,4 @@
 package com.RMRendimiento.User.dto;
-
-import com.RMRendimiento.User.entity.Role;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,7 +17,7 @@ public class UserDTO {
     private String name;
     private String email;
     private String password;
-    private List<Role> roles;
+    private List<RoleDTO> roles;
 
     public UserDTO(Long id, String name, String email, String password) {
         this.id = id;
