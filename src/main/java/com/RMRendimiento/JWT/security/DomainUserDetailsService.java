@@ -13,6 +13,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Component("userDetailsService")
@@ -20,17 +21,17 @@ public class DomainUserDetailsService implements UserDetailsService {
 
     private final Logger log = LoggerFactory.getLogger(DomainUserDetailsService.class);
 
-    private final JwtService JwtService;
+    private final JwtService jwtService;
 
     public DomainUserDetailsService(JwtService jwtService) {
-        JwtService = jwtService;
+        this.jwtService = jwtService;
     }
 
     @Override
     public UserDetails loadUserByUsername(final String name ) {
         log.debug("Authenticating {}", name);
 
-        return JwtService
+        return jwtService
                 .findOneUserByName( name )
                 .map( this::createSpringSecurityUser )
                 .orElseThrow( () -> new UsernameNotFoundException( "El usuario " + name + " no existe" ) );

@@ -9,7 +9,7 @@ public interface JwtRepository extends JpaRepository<User,Long> {
 
     @Query("""
         FROM User u JOIN FETCH u.roles
-        WHERE lower(u.name) = ?1
+        WHERE lower(u.name) = lower(?1)
     """)
     Optional<User> findByName(String name);
 }

@@ -23,6 +23,7 @@ public class JwtService {
 
         Optional<User> userOptional = jwtRepository.findByName(name);
 
+
         List<RoleTokenDTO> roles = new ArrayList<>();
         if (userOptional.isPresent()) {
             User user = userOptional.get();
