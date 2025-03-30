@@ -6,6 +6,7 @@ import org.apache.coyote.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,7 +20,8 @@ public class RoleController {
     private RoleService roleService;
 
     @GetMapping
-    public @ResponseBody ResponseEntity<?> getAllUsers() throws BadRequestException {
+    @PreAuthorize("hasAuthority('ADMIN')") // para dar permisos a los distintos roles
+    public @ResponseBody ResponseEntity<?> getAllRoles() throws BadRequestException {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(roleService.getAllRoles());
         } catch (Exception e) {
@@ -28,6 +30,7 @@ public class RoleController {
     }
 
     @GetMapping("/{id}")
+    @PreAuthorize("hasAuthority('USER')")
     public @ResponseBody ResponseEntity<?> getRoleById(@PathVariable(value = "id") Long id) throws BadRequestException {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(roleService.getRoleById(id));

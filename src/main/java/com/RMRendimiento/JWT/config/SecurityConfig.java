@@ -41,9 +41,9 @@ public class SecurityConfig {
                 .securityMatcher("/api/**" )
                 .authorizeHttpRequests( authz -> authz
                                 .requestMatchers(HttpMethod.POST, "/api/authenticate").permitAll()
-//                            .requestMatchers(HttpMethod.POST, "/api/user").permitAll()
-//                            .requestMatchers(HttpMethod.GET, "/api/role").authenticated()
-                                .anyRequest().permitAll()
+                            .requestMatchers(HttpMethod.GET, "/api/user").authenticated()
+                            .requestMatchers(HttpMethod.GET, "/api/role").authenticated()
+                                .anyRequest().authenticated()
                 )
 
                 .httpBasic( Customizer.withDefaults() )
