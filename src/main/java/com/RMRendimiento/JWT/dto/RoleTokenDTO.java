@@ -1,4 +1,4 @@
-package com.RMRendimiento.User.dto;
+package com.RMRendimiento.JWT.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class RoleDTO {
+public class RoleTokenDTO {
 
     private Long id;
     private String name;
