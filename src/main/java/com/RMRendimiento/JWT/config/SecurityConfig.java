@@ -16,6 +16,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import static org.springframework.security.config.Customizer.withDefaults;
+
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
@@ -34,6 +36,8 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(final HttpSecurity http ) throws Exception {
         http
+                .cors(withDefaults());
+        http
                 .csrf( AbstractHttpConfigurer::disable );
         http
                 .sessionManagement( s -> s.sessionCreationPolicy( SessionCreationPolicy.STATELESS ) );
@@ -46,7 +50,7 @@ public class SecurityConfig {
                                 .anyRequest().authenticated()
                 )
 
-                .httpBasic( Customizer.withDefaults() )
+                .httpBasic( withDefaults() )
                 .addFilterBefore( new JWTFilter( this.tokenProvider ), UsernamePasswordAuthenticationFilter.class );
         return http.build();
     }
