@@ -40,6 +40,7 @@ public class RoleController {
     }
 
     @PostMapping
+    @PreAuthorize("hasAuthority('ADMINPROYECT')")
     public @ResponseBody ResponseEntity<?> createRole(@RequestBody RoleDTO newRole) throws BadRequestException {
         try {
             return ResponseEntity.status(HttpStatus.CREATED).body(roleService.createRole(newRole));
