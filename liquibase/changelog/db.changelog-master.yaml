@@ -1,0 +1,11 @@
+databaseChangeLog:
+#  - include:
+#      file: changelog/changeset/changeset-user.yaml
+#  - include:
+#      file: changelog/changeset/changeset-role.yaml
+#  - include:
+#      file: changelog/changeset/changeset-activity.yaml
+#  - include:
+#      file: changelog/changeset/changeset-userRole.yaml
+#  - include:
+#      file: changelog/changeset/changeset-userActivity.yaml
