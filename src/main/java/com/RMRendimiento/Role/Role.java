@@ -1,11 +1,10 @@
-package com.RMRendimiento.User.entity;
+package com.RMRendimiento.Role;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.validator.constraints.UniqueElements;
 
 @Entity
 @NoArgsConstructor

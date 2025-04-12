@@ -3,7 +3,7 @@ package com.RMRendimiento.JWT.service;
 import com.RMRendimiento.JWT.dto.RoleTokenDTO;
 import com.RMRendimiento.JWT.dto.UserTokenDTO;
 import com.RMRendimiento.JWT.repository.JwtRepository;
-import com.RMRendimiento.User.entity.User;
+import com.RMRendimiento.User.User;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

@@ -1,7 +1,6 @@
-package com.RMRendimiento.User.controller;
+package com.RMRendimiento.Role;
 
-import com.RMRendimiento.User.dto.RoleDTO;
-import com.RMRendimiento.User.service.RoleService;
+import com.RMRendimiento.Role.dto.RoleDTO;
 import org.apache.coyote.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
