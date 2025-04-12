@@ -1,0 +1,30 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: Emanuel Arispe
+      changes:
+        - createTable:
+            tableName: User
+            columns:
+              - column:
+                  name: id_user
+                  type: BIGINT
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+                    autoincrement: true
+              - column:
+                  name: name
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: password
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: email
+                  type: varchar(150)
+                  constraints:
+                    nullable: false
