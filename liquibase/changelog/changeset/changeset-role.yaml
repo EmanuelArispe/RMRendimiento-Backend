@@ -1,0 +1,21 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: Emanuel Arispe
+      changes:
+        - createTable:
+            tableName: Role
+            columns:
+              - column:
+                  name: id_role
+                  type: BIGINT
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+                    autoincrement: true
+              - column:
+                  name: role
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+                    unique: true
