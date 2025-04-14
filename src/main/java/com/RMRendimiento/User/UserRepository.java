@@ -1,7 +1,6 @@
-package com.RMRendimiento.User.repository;
+package com.RMRendimiento.User;
 
 import com.RMRendimiento.User.dto.UserDTO;
-import com.RMRendimiento.User.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

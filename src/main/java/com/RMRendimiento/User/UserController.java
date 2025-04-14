@@ -1,8 +1,6 @@
-package com.RMRendimiento.User.controller;
+package com.RMRendimiento.User;
 
-import com.RMRendimiento.User.dto.UserCreateDTO;
 import com.RMRendimiento.User.dto.UserDTO;
-import com.RMRendimiento.User.service.UserService;
 import org.apache.coyote.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -38,7 +36,7 @@ public class UserController {
     }
 
     @PostMapping
-    public @ResponseBody ResponseEntity<?> createUser(@RequestBody UserCreateDTO newUser) throws BadRequestException {
+    public @ResponseBody ResponseEntity<?> createUser(@RequestBody UserDTO newUser) throws BadRequestException {
         try {
             return ResponseEntity.status(HttpStatus.CREATED).body(userService.createUser(newUser));
         } catch (Exception e) {

@@ -1,4 +1,4 @@
-package com.RMRendimiento.User.dto;
+package com.RMRendimiento.Role.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

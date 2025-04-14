@@ -4,8 +4,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.ArrayList;
-import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -17,13 +15,5 @@ public class UserDTO {
     private String name;
     private String email;
     private String password;
-    private List<RoleDTO> roles;
 
-    public UserDTO(Long id, String name, String email, String password) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-        this.password = password;
-        this.roles = new ArrayList<>();
-    }
 }

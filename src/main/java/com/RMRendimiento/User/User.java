@@ -1,5 +1,6 @@
-package com.RMRendimiento.User.entity;
+package com.RMRendimiento.User;
 
+import com.RMRendimiento.Role.Role;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -30,17 +31,4 @@ public class User {
     @Column(name = "email", nullable = false)
     private String email;
 
-    @ManyToMany(fetch=FetchType.LAZY)
-    @JoinTable(
-            name = "user_roles",
-            joinColumns = @JoinColumn(name = "id_user"),
-            inverseJoinColumns = @JoinColumn(name = "id_role")
-    )
-    private List<Role> roles;
-
-    public void addRole(Role role) {
-        if(roles.isEmpty()){
-            roles = new ArrayList<>();
-        }
-        roles.add(role); }
 }

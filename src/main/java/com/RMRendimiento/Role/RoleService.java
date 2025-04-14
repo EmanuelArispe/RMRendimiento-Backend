@@ -1,8 +1,6 @@
-package com.RMRendimiento.User.service;
+package com.RMRendimiento.Role;
 
-import com.RMRendimiento.User.dto.RoleDTO;
-import com.RMRendimiento.User.entity.Role;
-import com.RMRendimiento.User.repository.RoleRepository;
+import com.RMRendimiento.Role.dto.RoleDTO;
 import org.apache.coyote.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
